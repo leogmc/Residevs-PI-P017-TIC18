@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <vector>
+
 using namespace std;
 
 class Produto{
@@ -43,6 +45,48 @@ class Produto{
     void Produto :: setPreco(double _preco){
         preco = _preco;
     };
+
+class CarrinhoDeCompras
+{
+private:
+    vector<Produto> carrinho;
+    vector<int> quantidade;
+public:
+    ~CarrinhoDeCompras();
+    CarrinhoDeCompras();
+    void adicionaProduto(Produto& _produto, int _quantidade);
+    void removeProduto(int codigo, int _quantidade);
+
+    
+};
+
+void CarrinhoDeCompras::adicionaProduto(Produto& _produto, int _quantidade)
+{
+    carrinho.push_back(_produto);
+    quantidade.push_back(_quantidade);
+
+}
+
+void CarrinhoDeCompras::removeProduto(int _codigo, int _quantidade)
+{
+        for (int i = 0; i < carrinho.size(); i++) {
+            if (carrinho[i].getCodigo() == _codigo) {
+                if (quantidade[i] >= _quantidade) {
+                    quantidade[i] -= _quantidade;
+                    if (quantidade[i] == 0) {
+                        carrinho.erase(carrinho.begin() + i);
+                        quantidade.erase(quantidade.begin() + i);
+                    }
+                    return;
+                } else {
+                    cout << "Quantidade insuficiente no carrinho." << endl;
+                    return;
+                }
+            }
+        }
+        cout << "Produto não encontrado no carrinho." << endl;
+    }
+
 
 
     int main(){
