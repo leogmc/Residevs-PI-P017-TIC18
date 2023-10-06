@@ -5,6 +5,8 @@
 
 using namespace std;
 
+#define TRACO "------------------------------------------------"
+
 class Produto {
     private:
         static int codigo_atual;
@@ -62,6 +64,7 @@ class CarrinhoDeCompras
         void adicionaProduto(Produto& _produto, int _quantidade);
         void removeProduto(int codigo, int _quantidade);
         double calculaTotal(vector<Produto> carrinho);
+        void exibeCarrinho(vector<Produto> carrinho);
 
     
 };
@@ -114,6 +117,16 @@ double CarrinhoDeCompras::calculaTotal(vector<Produto> carrinho) {
     return total;
 }
 
+void CarrinhoDeCompras::exibeCarrinho(vector<Produto> carrinho) {
+    cout << TRACO << endl;
+    cout << left << setw(16) << "Código" << setw(16) << "Nome" << setw(16) << "Preço" << endl;
+    cout << TRACO << endl;
+    for (Produto produto : carrinho)
+    {
+        cout << left << setw(16) << produto.getCodigo() << setw(16) << produto.getNome() << setw(16) << produto.getPreco() << endl;
+    }
+}
+
 int main(){
     //Testes
     CarrinhoDeCompras carrinho;
@@ -130,6 +143,10 @@ int main(){
     produtos.push_back(p4);
 
     cout << "Total: " <<  carrinho.calculaTotal(produtos) << endl;
+
+    carrinho.exibeCarrinho(produtos);
+
+    cout << endl;
 
 
     cout << fixed << setprecision(2);
