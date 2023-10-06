@@ -1,6 +1,4 @@
 #include <iostream>
-#include <string>
-#include <vector>
 #include <cmath>
 #include <iomanip>
 
@@ -13,7 +11,7 @@ class Ponto
         float x, y;
 
     public:
-        Ponto(float x, float y);
+        Ponto(float _x, float _y);
         Ponto();
         ~Ponto();
         float getX();
@@ -57,6 +55,11 @@ float Ponto::getY()
 
 void Ponto::setY(float _y)
 {
+    y = _y;
+}
+
+void Ponto::setCoordenadas(double _x, double _y) {
+    x = _x;
     y = _y;
 }
 
