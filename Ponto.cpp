@@ -6,6 +6,7 @@
 
 using namespace std;
 
+//Exercício 2 - Etapa individual
 class Ponto
 {
     private:
