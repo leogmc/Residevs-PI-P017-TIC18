@@ -181,7 +181,7 @@ public:
         return false;
     }
 
-    double calcularTotal() {
+    double calcularValorTotal() {
         double total = 0;
 
         // Certifique-se de que ambas as listas tenham o mesmo tamanho
@@ -226,7 +226,7 @@ int main() {
     carrinho.adicionarProduto(p2, 2);
     carrinho.adicionarProduto(p3, 3);
 
-    double valor = carrinho.calcularTotal();
+    double valor = carrinho.calcularValorTotal();
 
     carrinho.exibirCarrinho();
     cout << "Total: " << valor << endl;
@@ -236,7 +236,7 @@ int main() {
 
     carrinho.removerProduto(p3, 1);
     carrinho.exibirCarrinho();
-    valor = carrinho.calcularTotal();
+    valor = carrinho.calcularValorTotal();
     cout << "Total: " << valor << endl;
     cout << "Itens disponíveis no estoque após remover do carrinho:" << endl;
     Estoque::listarEstoque();
